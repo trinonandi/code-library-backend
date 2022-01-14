@@ -1,0 +1,41 @@
+server:
+  error:
+    include-binding-errors: always
+    include-message: always
+  port: 8083
+spring:
+  datasource:
+    password: admin
+    username: postgres
+    url: jdbc:postgresql://localhost:5432/codelibrary
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        format_sql: true
+    show-sql: true
+  mail:
+    host: localhost
+    port: 1025
+    username: hello
+    password: hello
+
+    properties:
+      mail:
+        smtp:
+          ssl:
+            trust: "*"
+          auth: true
+          starttls:
+            enable: true
+          connectiontimeout: 5000
+          timeout: 3000
+          writetimeout: 5000
+
+# for the mailing purpose we used "maildev" server. Just run maildev in terminal
+# else we can use google's smtp servers as mentioned in
+# https://kb.synology.com/en-global/SRM/tutorial/How_to_use_Gmail_SMTP_server_to_send_emails_for_SRM
+# just put username and password as the one from which we want to send the emails
+
